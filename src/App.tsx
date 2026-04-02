@@ -197,7 +197,7 @@ function ImageLightbox({ src, onClose }: { src: string, onClose: () => void }) {
         onClick={e => e.stopPropagation()}
       >
         <img 
-          src={src} 
+          src={import.meta.env.BASE_URL + src.slice(1)} 
           alt="Ampliada" 
           className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-white/5"
         />
@@ -301,7 +301,7 @@ function ProjectModal({ project, onClose }: { project: any, onClose: () => void 
                         <span className="text-[8px] font-bold text-white uppercase tracking-tighter drop-shadow-md">Clique para ampliar</span>
                      </div>
                      <img 
-                      src={img} 
+                      src={import.meta.env.BASE_URL + img.slice(1)} 
                       alt={`Project snapshot ${idx}`} 
                       className={`w-full h-full ${project.title === "Laboratório de TI" ? 'object-contain bg-white/50' : 'object-cover'}`} 
                       onError={(e) => {
@@ -362,7 +362,7 @@ export default function App() {
             <a href="#contact" className="hover:text-accent transition-colors">Contato</a>
           </div>
           <a 
-            href="/Curriculo - Lucas Camargo.pdf" 
+            href={import.meta.env.BASE_URL + "Curriculo - Lucas Camargo.pdf"} 
             download="Curriculo - Lucas Camargo.pdf"
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold hover:bg-accent hover:text-black transition-all group"
           >
@@ -416,7 +416,7 @@ export default function App() {
                 <div className="absolute inset-0 bg-accent/15 rounded-full blur-[100px]" />
                 
                 <img 
-                  src="/profile.png" 
+                  src={import.meta.env.BASE_URL + "profile.png"} 
                   alt="Lucas Camargo" 
                   className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_0_40px_rgba(22,163,74,0.3)] hover:scale-105 hover:drop-shadow-[0_0_60px_rgba(22,163,74,0.5)] transition-all duration-500"
                 />
@@ -528,7 +528,7 @@ export default function App() {
                   >
                     <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-3 group-hover:border-accent/30 group-hover:bg-white/10 group-hover:shadow-[0_0_20px_rgba(45,212,191,0.15)] transition-all duration-300">
                       <img 
-                        src={tool.localIcon ? tool.localIcon : `https://cdn.simpleicons.org/${tool.icon}/${tool.color}`}
+                        src={tool.localIcon ? import.meta.env.BASE_URL + tool.localIcon.slice(1) : `https://cdn.simpleicons.org/${tool.icon}/${tool.color}`}
                         alt={tool.name}
                         className="w-7 h-7 object-contain"
                       />
@@ -593,7 +593,7 @@ export default function App() {
                   <div className="h-48 relative overflow-hidden">
                     {/* Background abstract pattern or image */}
                     <img 
-                      src={project.images[0]} 
+                      src={import.meta.env.BASE_URL + project.images[0].slice(1)} 
                       alt="" 
                       className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700 filter grayscale group-hover:grayscale-0"
                     />
@@ -764,3 +764,4 @@ export default function App() {
     </div>
   );
 }
+
