@@ -362,7 +362,7 @@ export default function App() {
             <a href="#contact" className="hover:text-accent transition-colors">Contato</a>
           </div>
           <a 
-            href={import.meta.env.BASE_URL + "Curriculo - Lucas Camargo.pdf"} 
+            href={import.meta.env.BASE_URL + "Curriculo-Lucas-Camargo.pdf"} 
             download="Curriculo - Lucas Camargo.pdf"
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold hover:bg-accent hover:text-black transition-all group"
           >
@@ -764,4 +764,5 @@ export default function App() {
     </div>
   );
 }
+
 
