@@ -71,7 +71,8 @@ const projects = [
       "/click-social/1.png",
       "/click-social/2.png",
       "/click-social/3.png"
-    ]
+    ],
+    status: "developing"
   },
   {
     title: "Gold Level",
