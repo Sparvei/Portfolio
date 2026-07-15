@@ -161,7 +161,8 @@ function ImageLightbox({ src, onClose }: { src: string, onClose: () => void }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-12"
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 p-4 md:p-12"
       onClick={(e) => {
         e.stopPropagation();
         onClose();
@@ -206,13 +207,15 @@ function ProjectModal({ project, onClose }: { project: any, onClose: () => void 
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-black/90 backdrop-blur-md"
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-black/90"
       onClick={onClose}
     >
       <motion.div 
-        initial={{ scale: 0.9, y: 20 }}
+        initial={{ scale: 0.9, y: 15 }}
         animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.9, y: 20 }}
+        exit={{ scale: 0.9, y: 15 }}
+        transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
         className="relative max-w-5xl w-full max-h-[90vh] bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden shadow-2xl shadow-accent/5 flex flex-col"
         onClick={e => e.stopPropagation()}
       >
@@ -274,10 +277,10 @@ function ProjectModal({ project, onClose }: { project: any, onClose: () => void 
                    key={idx}
                    initial={{ opacity: 0, rotate: idx % 2 === 0 ? -10 : 10, scale: 0.8 }}
                    animate={{ opacity: 1, rotate: (idx === 0 ? -8 : idx === 1 ? 6 : idx === 2 ? -3 : 8), scale: 1 }}
-                   transition={{ delay: 0.2 + (idx * 0.1) }}
+                   transition={{ type: "tween", ease: "easeOut", duration: 0.25, delay: 0.12 + (idx * 0.06) }}
                    whileHover={{ scale: 1.05, zIndex: 50, rotate: 0 }}
                    onClick={() => setZoomedImage(img)}
-                   className="absolute w-32 md:w-48 lg:w-56 p-2 md:p-3 bg-[#f5f5f5] shadow-[0_10px_30px_rgba(0,0,0,0.5)] rounded-sm transform cursor-pointer transition-all border border-white/20 group/photo"
+                   className="absolute w-32 md:w-48 lg:w-56 p-2 md:p-3 bg-[#f5f5f5] shadow-[0_10px_30px_rgba(0,0,0,0.5)] rounded-sm cursor-pointer border border-white/20 group/photo"
                    style={{ 
                      left: idx === 0 ? '5%' : idx === 1 ? '45%' : idx === 2 ? '15%' : '50%',
                      top: idx === 0 ? '5%' : idx === 1 ? '10%' : idx === 2 ? '40%' : '35%',
@@ -285,13 +288,14 @@ function ProjectModal({ project, onClose }: { project: any, onClose: () => void 
                    }}
                  >
                    <div className="aspect-square bg-[#ddd] overflow-hidden mb-2 md:mb-3 rounded-[1px] relative">
-                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/0 group-hover/photo:bg-black/40 transition-all duration-300 backdrop-blur-[2px] opacity-0 group-hover/photo:opacity-100">
+                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/0 group-hover/photo:bg-black/40 transition-all duration-300 opacity-0 group-hover/photo:opacity-100">
                         <div className="bg-accent/20 p-2 rounded-full mb-2 border border-accent/40 scale-75 group-hover/photo:scale-100 transition-transform">
                            <ExternalLink className="text-white" size={20} />
                         </div>
                         <span className="text-[8px] font-bold text-white uppercase tracking-tighter drop-shadow-md">Clique para ampliar</span>
                      </div>
                      <img 
+                      decoding="async"
                       src={import.meta.env.BASE_URL + img.slice(1)} 
                       alt={`Project snapshot ${idx}`} 
                       className={`w-full h-full ${project.title === "Laboratório de TI" ? 'object-contain bg-white/50' : 'object-cover'}`} 
@@ -575,7 +579,7 @@ export default function App() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`group relative bg-[#0d0d0d] border border-white/10 rounded-[32px] overflow-hidden flex flex-col hover:border-accent/40 transition-all duration-500 shadow-2xl hover:shadow-accent/5 ${project.noDetails ? 'md:col-span-2' : ''}`}
+                  className={`group relative bg-[#0d0d0d] border border-white/10 rounded-[32px] overflow-hidden flex flex-col hover:border-accent/40 transition-[border-color,box-shadow] duration-500 shadow-2xl hover:shadow-accent/5 ${project.noDetails ? 'md:col-span-2' : ''}`}
                 >
                   {/* Card Background Glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />

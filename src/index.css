@@ -22,7 +22,7 @@
 
 /* Classes utilitárias atuais */
 .glass-card {
-  @apply bg-card-dark/50 backdrop-blur-md border border-white/5 rounded-2xl;
+  @apply bg-card-dark/50 backdrop-blur-sm border border-white/5 rounded-2xl;
 }
 
 .text-gradient {
