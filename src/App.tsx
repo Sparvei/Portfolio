@@ -50,29 +50,19 @@ const projects = [
     ]
   },
   {
-    title: "Inclusão Digital - Click Social",
-    description: "Projeto de inclusão digital focado na recuperação de equipamentos descartados e estrutura de apoio para doação e triagem de máquinas.",
-    longDescription: "Projeto voltado à inclusão digital, com foco na recuperação de equipamentos que seriam descartados e na criação de uma estrutura de apoio para arrecadação, triagem e reaproveitamento de máquinas destinadas à doação.\n\n" +
-                     "Destaques do projeto:\n" +
-                     "• Desenvolvimento do site oficial do projeto\n" +
-                     "• Estrutura de divulgação institucional\n" +
-                     "• Formulário para captação de equipamentos\n" +
-                     "• Apoio à triagem de hardware\n" +
-                     "• Participação em manutenção preventiva e corretiva\n" +
-                     "• Contribuição na construção da identidade do projeto\n\n" +
-                     "Minha atuação:\n" +
-                     "Desenvolvimento do site do projeto com foco em divulgação, presença digital e captação de equipamentos, além de participação no processo de branding, triagem e manutenção de computadores destinados à inclusão digital.\n\n" +
-                     "Objetivo:\n" +
-                     "Contribuir para ampliar o acesso à tecnologia por meio do reaproveitamento de equipamentos e da criação de uma estrutura digital de apoio ao projeto.",
-    tags: ["Web Design", "Hardware", "Social"],
-    icon: <Network className="w-6 h-6 text-accent" />,
+    title: "LC Help Informática",
+    description: "Projeto pessoal de assistência técnica criado com o objetivo de oferecer soluções para computadores, notebooks e celulares.",
+    longDescription: "LC Help Informática é um projeto pessoal de assistência técnica criado com o objetivo de oferecer soluções para computadores, notebooks e celulares. O projeto reúne conhecimentos adquiridos durante minha formação técnica em Informática, aliados à prática em manutenção, diagnóstico e suporte técnico.\n\n" +
+                     "Além dos serviços, a LC Help também busca compartilhar conteúdo educativo sobre tecnologia e manutenção preventiva, construindo uma relação de confiança com a comunidade.",
+    tags: ["Hardware", "Suporte", "Manutenção"],
+    icon: <Cpu className="w-6 h-6 text-accent" />,
     link: "#",
     images: [
-      "/click-social/1.png",
-      "/click-social/2.png",
-      "/click-social/3.png"
-    ],
-    status: "developing"
+      "/lchelp-informatica/1.PNG",
+      "/lchelp-informatica/2.jpeg",
+      "/lchelp-informatica/3.jpeg",
+      "/lchelp-informatica/4.jpeg"
+    ]
   },
   {
     title: "Gold Level",
@@ -283,14 +273,14 @@ function ProjectModal({ project, onClose }: { project: any, onClose: () => void 
                  <motion.div
                    key={idx}
                    initial={{ opacity: 0, rotate: idx % 2 === 0 ? -10 : 10, scale: 0.8 }}
-                   animate={{ opacity: 1, rotate: (idx === 0 ? -8 : idx === 1 ? 6 : -3), scale: 1 }}
+                   animate={{ opacity: 1, rotate: (idx === 0 ? -8 : idx === 1 ? 6 : idx === 2 ? -3 : 8), scale: 1 }}
                    transition={{ delay: 0.2 + (idx * 0.1) }}
                    whileHover={{ scale: 1.05, zIndex: 50, rotate: 0 }}
                    onClick={() => setZoomedImage(img)}
                    className="absolute w-32 md:w-48 lg:w-56 p-2 md:p-3 bg-[#f5f5f5] shadow-[0_10px_30px_rgba(0,0,0,0.5)] rounded-sm transform cursor-pointer transition-all border border-white/20 group/photo"
                    style={{ 
-                     left: idx === 0 ? '5%' : idx === 1 ? '45%' : '25%',
-                     top: idx === 0 ? '5%' : idx === 1 ? '10%' : '40%',
+                     left: idx === 0 ? '5%' : idx === 1 ? '45%' : idx === 2 ? '15%' : '50%',
+                     top: idx === 0 ? '5%' : idx === 1 ? '10%' : idx === 2 ? '40%' : '35%',
                      zIndex: idx
                    }}
                  >
